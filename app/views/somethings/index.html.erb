@@ -10,13 +10,7 @@
   </thead>
 
   <tbody>
-    <% @somethings.each do |something| %>
-      <tr>
-        <td><%= link_to 'Show', something %></td>
-        <td><%= link_to 'Edit', edit_something_path(something) %></td>
-        <td><%= link_to 'Destroy', something, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <td><%= link_to 'Notify', something_notify_path(something_id: 1) %></td>
   </tbody>
 </table>
 
