@@ -23,7 +23,7 @@ consumer.subscriptions.create('AppearanceChannel', {
   },
 
   update() {
-    this.documentIsActive ? this.appear() : this.away()
+    this.documentIsActive() ? this.appear() : this.away()
   },
 
   appear() {
@@ -50,8 +50,10 @@ consumer.subscriptions.create('AppearanceChannel', {
     document.removeEventListener('visibilitychange', this.update)
   },
 
-  get documentIsActive() {
-    return document.visibilityState == 'visible' && document.hasFocus()
+  documentIsActive() {
+    var isActive = document.visibilityState == 'visible' && document.hasFocus()
+    console.log('isActive=' + isActive)
+    return isActive
   },
 
   get appearingOn() {
